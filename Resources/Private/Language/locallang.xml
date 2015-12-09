@@ -84,6 +84,7 @@
 			<label index="playText">Play</label>
 			<label index="prevText">Previous</label>
 			<label index="nextText">Next</label>
+			<label index="more">More</label>
 			
 		</languageKey>
 		<languageKey index="de" type="array">

@@ -12,7 +12,7 @@ $TCA['tx_wsflexslider_domain_model_image'] = array(
 		'1' => array(
 			'showitem' => 'hidden;;1, title, sys_language_uid, 
 				description;LLL:EXT:cms/locallang_ttc.xlf:bodytext_formlabel;;richtext:rte_transform[flag=rte_enabled|mode=ts_css], 
-				textposition, styleclass, link, image,
+				textposition, styleclass, link, content_uid, image,
 		
 				--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access,starttime, endtime'),
 	),
@@ -202,14 +202,20 @@ $TCA['tx_wsflexslider_domain_model_image'] = array(
 			
 		),
 		'content_uid' => Array(
-			'label' => 'CC',
+			'label' => 'Select slideshow',
 			'config' => Array(
+				/* Mod 
+				'type' => 'input',
+				'size' => 10,
+				'eval' => 'int',*/
+				/* Orig*/
 				'type' => 'select',
 				'foreign_table' => 'tt_content',
-				//'foreign_table_where' => ...,
+				'foreign_table_where' => "AND tt_content.pid = ###CURRENT_PID### AND tt_content.CType = 'list'",
 				'size' => 1,
 				'minitems' => 0,
 				'maxitems' => 1,
+				 
 			),
 		),
 	),

@@ -2,3 +2,4 @@
 /.settings
 /.idea
 .buildpath
+.DS_Store
