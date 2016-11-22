@@ -8,8 +8,7 @@
 
     <f:flashMessages class="flashmessage" />
 
-
-    <div id="flexslider-{uid}" class="flexslider <f:if condition="{0:settings.carousel} == {0:'true'}">carousel</f:if>">
+    <div id="flexslider-{uid}" class="flexslider {f:if(condition:settings.templateLayout,then:'layout-{settings.templateLayout}')} {f:if(condition:'{settings.carousel} == \'true\'',then:'carousel')}">
         <ul class="slides">
             <f:for each="{images}" as="item">
                 <f:render partial="Entry" section="Entry" arguments="{item: item, settings: settings}" />
@@ -19,7 +18,7 @@
 
     <prod:pageRenderer.addJsFooterInlineCode name="flexslider-{uid}" >
 
-    jQuery(window).load(function() {
+    jQuery(window).on('load',function() {
         jQuery('#flexslider-<f:format.raw value="{uid}" />').flexslider({
             animation: "<f:format.raw value="{settings.animation}" />",
             animationLoop: {settings.animationLoop},

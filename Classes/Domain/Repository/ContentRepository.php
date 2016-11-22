@@ -13,36 +13,14 @@ namespace WapplerSystems\WsFlexslider\Domain\Repository;
  *
  * The TYPO3 project - inspiring people to share!
  */
-
-use TYPO3\CMS\Extbase\Persistence\QueryInterface;
+use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
- *
- *
  * @author     Sven Wappler
  * @subpackage Repository
  * @license    http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
-class ImageRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
+class ContentRepository extends Repository
 {
-
-    protected $defaultOrderings = array(
-        'sorting' => QueryInterface::ORDER_ASCENDING,
-    );
-
-
-    /**
-     * All Queries withoud storagePID
-     *
-     * @return QueryInterface
-     */
-    public function createQuery()
-    {
-        $query = parent::createQuery();
-        $query->getQuerySettings()->setRespectStoragePage(false);
-        $query->getQuerySettings()->setRespectSysLanguage(false);
-        return $query;
-    }
-
-
+    
 }
